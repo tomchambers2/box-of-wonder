@@ -8,15 +8,41 @@
 #define DREQ 3       // VS1053 Data request, ideally an Interrupt pin
 Adafruit_VS1053_FilePlayer musicPlayer = Adafruit_VS1053_FilePlayer(SHIELD_RESET, SHIELD_CS, SHIELD_DCS, DREQ, CARDCS);
 
-void playSound() {
+void playSoundOne() {
   if (!musicPlayer.begin()) { // initialise the music player
      Serial.println(F("Couldn't find VS1053, do you have the right pins defined?"));
      while (1);
   }
-  Serial.println(F("VS1053 found"));  
+  //Serial.println(F("VS1053 found"));  
   SD.begin(CARDCS);
   musicPlayer.useInterrupt(VS1053_FILEPLAYER_PIN_INT);  // DREQ int       
-  Serial.println("about to play sound");
+  //Serial.println("about to play sound");
   musicPlayer.setVolume(1,1);
   musicPlayer.startPlayingFile("track001.mp3");  
+}
+
+void playSoundTwo() {
+  if (!musicPlayer.begin()) { // initialise the music player
+     Serial.println(F("Couldn't find VS1053, do you have the right pins defined?"));
+     while (1);
+  }
+  //Serial.println(F("VS1053 found"));  
+  SD.begin(CARDCS);
+  musicPlayer.useInterrupt(VS1053_FILEPLAYER_PIN_INT);  // DREQ int       
+  //Serial.println("about to play sound");
+  musicPlayer.setVolume(1,1);
+  musicPlayer.startPlayingFile("track002.mp3");  
+}
+
+void playSoundThree() {
+  if (!musicPlayer.begin()) { // initialise the music player
+     Serial.println(F("Couldn't find VS1053, do you have the right pins defined?"));
+     while (1);
+  }
+  //Serial.println(F("VS1053 found"));  
+  SD.begin(CARDCS);
+  musicPlayer.useInterrupt(VS1053_FILEPLAYER_PIN_INT);  // DREQ int       
+  //Serial.println("about to play sound");
+  musicPlayer.setVolume(1,1);
+  musicPlayer.startPlayingFile("track003.mp3");  
 }
